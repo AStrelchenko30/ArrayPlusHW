@@ -9,7 +9,7 @@ public class Main {
         int[][] matrix = new int[3][3];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-                if (i == j) {
+                if (i == j || i == matrix.length - 1 - j) {
                     matrix[i][j] = 1;
                 }
                 if ((i == 2 && j == 0) || (i == 0 && j == 2)) {
@@ -24,42 +24,53 @@ public class Main {
             System.out.println();
         }
         System.out.println("Задание 6");
-        int[] arr = {5, 4, 3, 2, 1};
-        System.out.println(Arrays.toString(arr));
-        Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));
+        int[] arrOld = {5, 4, 3, 2, 1};
+        int[] arr = new int[arrOld.length];
+        System.out.println(Arrays.toString(arrOld));
 
-        System.out.println("Задание 7");
-
-        int [] array={5, 4, 3, 2, 1};
-        for (int i= array.length-1;i>=0;i--){
-            //ОГРОМНЫЙ ВОПРОС!!!!!!!
+        for (int i = arrOld.length - 1; i >= 0; i--) {
+            //if (i != arrOld.length - 1) {
+                //System.out.print(" ");
+            //}
+            arr[i] = i + 1;
         }
+        System.out.print(Arrays.toString(arr));
 
-        System.out.println("Задание 8");
+            System.out.println();
+            System.out.println("Задание 7");
 
-        int [] b={-6,2,5,-8,8,10,4,-7,12,1};
-        Arrays.sort(b);
-        System.out.print(Arrays.toString(b));
-        System.out.println();
-        int first=0;
-        int last=b.length-1;
-        int sum=-2;
-        while(first<last){
-            int s=b[first]+b[last];
-            if(s==sum) {
-                first++;
-                last--;
-                System.out.println(b[first] + " " + b[last]);
-            }else{
-                if(s<sum) {
-                    first++;
-                }else{
-                    last--;
+            int[] array = {5, 4, 3, 2, 1};
+            for (int j = array.length - 1; j >= 0; j--) {
+                if (j != array.length - 1) {
+                    System.out.print(",");
                 }
-
+                System.out.print(array[j]);
             }
-        }
+            System.out.println();
+            System.out.println("Задание 8");
+
+            int[] b = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
+            Arrays.sort(b);
+            System.out.print(Arrays.toString(b));
+            System.out.println();
+            int first = 0;
+            int last = b.length - 1;
+            int sum = -2;
+            while (first < last) {
+                int s = b[first] + b[last];
+                if (s == sum) {
+                    first++;
+                    last--;
+                    System.out.println(b[first] + " " + b[last]);
+                } else {
+                    if (s < sum) {
+                        first++;
+                    } else {
+                        last--;
+                    }
+
+                }
+            }
 
         }
     }
